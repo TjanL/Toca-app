@@ -48,7 +48,7 @@ jobs:
       with:
         inlineScript: |
             pwd
-            ls
+            ls $GITHUB_WORKSPACE
             az storage blob upload-batch --account-name tocawebsite --auth-mode key -d '$web' -s $GITHUB_WORKSPACE/build
     
     - name: logout
