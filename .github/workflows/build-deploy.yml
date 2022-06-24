@@ -48,8 +48,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            ls
-            az storage blob upload-batch --account-name tocawebsite --auth-mode key -d '$web' -s build
+            az storage blob upload-batch --overwrite true --account-name tocawebsite --auth-mode key -d '$web' -s build
     
     - name: logout
       run: |
