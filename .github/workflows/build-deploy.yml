@@ -32,7 +32,8 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name tocawebsite  --auth-mode key -d '$web' -s build
+            ls
+            az storage blob upload-batch --account-name tocawebsite --auth-mode key -d '$web' -s ./build
     
     - name: logout
       run: |
