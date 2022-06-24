@@ -39,7 +39,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-dir
-        path: $GITHUB_WORKSPACE/build
+        path: build
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
