@@ -3,6 +3,9 @@ name: Blob storage website CI
 on:
   push:
     branches: [ "main" ]
+    
+env:
+  GENERATE_SOURCEMAP: false
 
 jobs:
   build:
