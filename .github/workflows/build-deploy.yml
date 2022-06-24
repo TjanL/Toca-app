@@ -39,7 +39,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-dir
-        path: /github/workspace/build
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -50,7 +49,7 @@ jobs:
         inlineScript: |
             pwd
             ls
-            az storage blob upload-batch --account-name tocawebsite --auth-mode key -d '$web' -s build
+            az storage blob upload-batch --account-name tocawebsite --auth-mode key -d '$web' -s $GITHUB_WORKSPACE/build
     
     - name: logout
       run: |
