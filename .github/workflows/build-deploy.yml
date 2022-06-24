@@ -23,9 +23,9 @@ jobs:
     - run: yarn install
     - run: yarn build
     - name: Share artifact inside workflow
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
-        name: build-deploy
+        name: build-dir
         path: build
     
   deploy:
@@ -34,11 +34,11 @@ jobs:
     
     needs: build
     steps:
-    - name: Get artifact
-      uses: actions/download-artifact@v1
-      with:
-        name: build-deploy
     - uses: actions/checkout@v2
+    - name: Get build
+      uses: actions/download-artifact@v3
+      with:
+        name: build-dir
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
